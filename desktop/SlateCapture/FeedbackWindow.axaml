@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SlateCapture.FeedbackWindow"
+        Width="480" SizeToContent="Height" CanResize="False"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        Background="#15181E"
+        Icon="/Assets/icon.ico">
+
+  <Panel>
+    <StackPanel x:Name="FormPanel" Margin="22,20,22,22" Spacing="16">
+
+      <StackPanel Spacing="4">
+        <TextBlock x:Name="HeaderText" FontSize="17" FontWeight="SemiBold" />
+        <TextBlock x:Name="SubtitleText" Classes="muted" />
+      </StackPanel>
+
+      <StackPanel Spacing="8">
+        <TextBlock x:Name="KindTitle" Classes="caption" />
+        <WrapPanel>
+          <ToggleButton x:Name="BugButton" Classes="seg" Tag="0" IsChecked="True" Click="OnKindClick" />
+          <ToggleButton x:Name="IdeaButton" Classes="seg" Tag="1" Click="OnKindClick" />
+          <ToggleButton x:Name="OtherButton" Classes="seg" Tag="2" Click="OnKindClick" />
+        </WrapPanel>
+      </StackPanel>
+
+      <StackPanel Spacing="6">
+        <TextBlock x:Name="MessageTitle" Classes="caption" />
+        <TextBox x:Name="MessageBox" Classes="field" Height="120" AcceptsReturn="True" TextWrapping="Wrap" MaxLength="1500" />
+        <Grid ColumnDefinitions="*,Auto">
+          <TextBlock x:Name="ErrorText" Classes="muted" Foreground="#FF6B70" />
+          <TextBlock x:Name="CountText" Grid.Column="1" Classes="muted" Margin="12,0,0,0" />
+        </Grid>
+      </StackPanel>
+
+      <StackPanel Spacing="6">
+        <TextBlock x:Name="EmailTitle" Classes="caption" />
+        <TextBox x:Name="EmailBox" Classes="field" MaxLength="120" Watermark="name@example.com" />
+      </StackPanel>
+
+      <CheckBox x:Name="DetailsCheck" IsChecked="True" VerticalContentAlignment="Top">
+        <StackPanel Spacing="3">
+          <TextBlock x:Name="DetailsLabel" Classes="label" />
+          <TextBlock x:Name="DetailsHint" Classes="muted" />
+        </StackPanel>
+      </CheckBox>
+
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+        <Button x:Name="CancelButton" Classes="ghost" Click="OnCancelClick" />
+        <Button x:Name="SendButton" Classes="primary" Click="OnSendClick" />
+      </StackPanel>
+    </StackPanel>
+
+    <StackPanel x:Name="DonePanel" IsVisible="False" Margin="22,44,22,30" Spacing="10">
+      <Border Width="56" Height="56" CornerRadius="28" Background="#294C8DFF" HorizontalAlignment="Center">
+        <Path Data="M7,14.5 L12,19.5 L21,9" Stroke="#4C8DFF" StrokeThickness="2.6"
+              StrokeLineCap="Round" StrokeJoin="Round" Width="28" Height="28"
+              HorizontalAlignment="Center" VerticalAlignment="Center" />
+      </Border>
+      <TextBlock x:Name="DoneTitle" FontSize="16" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="0,4,0,0" />
+      <TextBlock x:Name="DoneText" Classes="muted" TextAlignment="Center" HorizontalAlignment="Center" MaxWidth="360" />
+      <Button x:Name="OkButton" Classes="ghost" HorizontalAlignment="Center" MinWidth="96"
+              HorizontalContentAlignment="Center" Margin="0,10,0,0" Click="OnCancelClick" />
+    </StackPanel>
+  </Panel>
+</Window>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#FF0F1217</color>
+    <color name="text">#FFE9ECF1</color>
+    <color name="muted">#FFA3AAB6</color>
+    <color name="line">#FF3A414D</color>
+    <color name="accent">#FF4C8DFF</color>
+    <color name="green">#FF34D3A6</color>
+    <color name="green_text">#FF8EEBCF</color>
+    <color name="red">#FFF2555A</color>
+    <color name="red_text">#FFFFB4B6</color>
+</resources>

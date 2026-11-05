@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">SlateCapture</string>
+    <string name="status_searching">Looking for your computer</string>
+    <string name="status_lost">Connection lost, reconnecting</string>
+    <string name="status_connected">Connected to %1$s</string>
+    <string name="status_streaming">Streaming · %1$s</string>
+    <string name="hint_network">Make sure the tablet and the computer are on the same Wi-Fi network.</string>
+    <string name="start">Start streaming</string>
+    <string name="stop">Stop streaming</string>
+    <string name="home">Go to home screen</string>
+    <string name="stream_info">%1$d×%2$d · %3$d FPS · hardware encoder</string>
+    <string name="stream_info_audio"> · audio on</string>
+    <string name="no_audio"> · no audio capture on this device</string>
+    <string name="channel_name">Screen streaming</string>
+    <string name="notification_title">SlateCapture is streaming</string>
+    <string name="notification_text">Your screen is being sent to your computer.</string>
+</resources>

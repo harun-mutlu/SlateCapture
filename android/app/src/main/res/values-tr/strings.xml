@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status_searching">Bilgisayar aranıyor</string>
+    <string name="status_lost">Bağlantı koptu, yeniden bağlanılıyor</string>
+    <string name="status_connected">%1$s ile bağlı</string>
+    <string name="status_streaming">Yayında · %1$s</string>
+    <string name="hint_network">Tablet ve bilgisayar aynı Wi-Fi ağında olmalı.</string>
+    <string name="start">Yayını başlat</string>
+    <string name="stop">Yayını durdur</string>
+    <string name="home">Ana ekrana dön</string>
+    <string name="stream_info">%1$d×%2$d · %3$d FPS · donanım kodlayıcı</string>
+    <string name="stream_info_audio"> · ses açık</string>
+    <string name="no_audio"> · bu cihazda ses kaydı yok</string>
+    <string name="channel_name">Ekran yayını</string>
+    <string name="notification_title">SlateCapture yayında</string>
+    <string name="notification_text">Ekranın bilgisayara gönderiliyor.</string>
+</resources>

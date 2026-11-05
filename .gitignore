@@ -1,0 +1,40 @@
+tools/
+dist/
+build/
+signing/
+logs/
+.gradle/
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+desktop/**/bin/
+desktop/**/obj/
+*.user
+.vs/
+.idea/
+
+# Signing keys and secrets (never upload these)
+*.jks
+*.keystore
+keystore.properties
+*.p12
+*.pem
+.env
+
+# Build outputs (published on the Releases page instead)
+*.apk
+*.aab
+*.exe
+*.zip
+.kotlin/
+android/.idea/
+android/captures/
+
+# Logs
+*.log
+
+# System files
+Thumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/spinner"
+        style="@android:style/Widget.Material.ProgressBar.Small"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="20dp"
+        android:indeterminateTint="@color/accent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/dot"
+            android:layout_width="9dp"
+            android:layout_height="9dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/dot" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/hint_network"
+        android:textColor="@color/muted"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_primary"
+        android:paddingStart="36dp"
+        android:paddingEnd="36dp"
+        android:stateListAnimator="@null"
+        android:text="@string/start"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFFFF"
+        android:textSize="17sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:background="@drawable/btn_stop"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp"
+            android:stateListAnimator="@null"
+            android:text="@string/stop"
+            android:textAllCaps="false"
+            android:textColor="@color/red_text"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/btn_plain"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:stateListAnimator="@null"
+            android:text="@string/home"
+            android:textAllCaps="false"
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/muted"
+        android:textSize="12sp" />
+</LinearLayout>

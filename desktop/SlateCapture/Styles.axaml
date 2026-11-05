@@ -1,0 +1,140 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <Style Selector="Window">
+    <Setter Property="FontFamily" Value="fonts:Inter#Inter" />
+    <Setter Property="Foreground" Value="#E9ECF1" />
+  </Style>
+
+  <Style Selector="TextBlock.muted">
+    <Setter Property="Foreground" Value="#A3AAB6" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="LineHeight" Value="17" />
+  </Style>
+  <Style Selector="TextBlock.label">
+    <Setter Property="FontSize" Value="13" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+  </Style>
+  <Style Selector="TextBlock.mono">
+    <Setter Property="FontFamily" Value="Cascadia Mono, Consolas, Menlo, DejaVu Sans Mono, monospace" />
+  </Style>
+
+  <Style Selector="Button.ghost">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="#3A414D" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="8" />
+    <Setter Property="Padding" Value="12,7" />
+    <Setter Property="FontSize" Value="13" />
+    <Setter Property="Foreground" Value="#E9ECF1" />
+  </Style>
+  <Style Selector="Button.ghost:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="#1F242C" />
+    <Setter Property="BorderBrush" Value="#4A525F" />
+    <Setter Property="Foreground" Value="#FFFFFF" />
+  </Style>
+
+  <Style Selector="ToggleButton.seg">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="#2E343E" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="8" />
+    <Setter Property="Padding" Value="12,7" />
+    <Setter Property="MinHeight" Value="34" />
+    <Setter Property="FontSize" Value="13" />
+    <Setter Property="Foreground" Value="#C9CED6" />
+    <Setter Property="Margin" Value="0,0,6,6" />
+  </Style>
+  <Style Selector="ToggleButton.seg:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="#1B1F26" />
+    <Setter Property="BorderBrush" Value="#3A414D" />
+    <Setter Property="Foreground" Value="#E9ECF1" />
+  </Style>
+  <Style Selector="ToggleButton.seg:checked /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="#294C8DFF" />
+    <Setter Property="BorderBrush" Value="#4C8DFF" />
+    <Setter Property="Foreground" Value="#DCE8FF" />
+  </Style>
+  <Style Selector="ToggleButton.seg:disabled /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="#232830" />
+    <Setter Property="Foreground" Value="#5F6670" />
+  </Style>
+
+  <Style Selector="Button.rec">
+    <Setter Property="Width" Value="54" />
+    <Setter Property="Height" Value="54" />
+    <Setter Property="CornerRadius" Value="27" />
+    <Setter Property="BorderThickness" Value="3" />
+    <Setter Property="BorderBrush" Value="#F2555A" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+  </Style>
+  <Style Selector="Button.rec:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="#1FF2555A" />
+    <Setter Property="BorderBrush" Value="#FF6B70" />
+  </Style>
+  <Style Selector="Button.rec:disabled /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="#3A414D" />
+  </Style>
+
+  <Style Selector="Border.badge">
+    <Setter Property="Background" Value="#A6000000" />
+    <Setter Property="CornerRadius" Value="6" />
+    <Setter Property="Padding" Value="8,4" />
+  </Style>
+
+  <Style Selector="TextBlock.caption">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="Foreground" Value="#8A93A1" />
+  </Style>
+
+  <Style Selector="TextBox.field">
+    <Setter Property="Background" Value="#0E1014" />
+    <Setter Property="BorderBrush" Value="#3A414D" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="10" />
+    <Setter Property="Padding" Value="11,9" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Foreground" Value="#E9ECF1" />
+    <Setter Property="CaretBrush" Value="#E9ECF1" />
+    <Setter Property="SelectionBrush" Value="#664C8DFF" />
+  </Style>
+  <Style Selector="TextBox.field:pointerover /template/ Border#PART_BorderElement">
+    <Setter Property="Background" Value="#12151A" />
+    <Setter Property="BorderBrush" Value="#4A525F" />
+  </Style>
+  <Style Selector="TextBox.field:focus /template/ Border#PART_BorderElement">
+    <Setter Property="Background" Value="#0E1014" />
+    <Setter Property="BorderBrush" Value="#4C8DFF" />
+    <Setter Property="BorderThickness" Value="1" />
+  </Style>
+  <Style Selector="TextBox.field /template/ TextBlock#PART_Watermark">
+    <Setter Property="Foreground" Value="#5F6670" />
+  </Style>
+  <Style Selector="TextBox.field:focus /template/ TextBlock#PART_Watermark">
+    <Setter Property="Foreground" Value="#5F6670" />
+  </Style>
+
+  <Style Selector="Button.primary">
+    <Setter Property="Background" Value="#4C8DFF" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CornerRadius" Value="8" />
+    <Setter Property="Padding" Value="18,8" />
+    <Setter Property="FontSize" Value="13" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="Foreground" Value="#FFFFFF" />
+  </Style>
+  <Style Selector="Button.primary:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="#6A9FFF" />
+    <Setter Property="Foreground" Value="#FFFFFF" />
+  </Style>
+  <Style Selector="Button.primary:disabled /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="#2C3F63" />
+    <Setter Property="Foreground" Value="#A9B6CC" />
+  </Style>
+</Styles>

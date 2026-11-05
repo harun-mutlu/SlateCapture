@@ -1,0 +1,169 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:SlateCapture"
+        x:Class="SlateCapture.MainWindow"
+        Title="SlateCapture"
+        Width="1180" Height="760" MinWidth="820" MinHeight="560"
+        WindowStartupLocation="CenterScreen"
+        Background="#0E1014"
+        Icon="/Assets/icon.ico">
+
+  <Grid RowDefinitions="Auto,*">
+
+    <Border Background="#15181E" BorderBrush="#262B34" BorderThickness="0,0,0,1" Padding="16,10">
+      <Grid ColumnDefinitions="*,Auto,Auto">
+        <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+          <Viewbox Width="22" Height="22">
+            <Canvas Width="24" Height="24">
+              <Path Data="M5,5 H19 A2,2 0 0 1 21,7 V16 A2,2 0 0 1 19,18 H5 A2,2 0 0 1 3,16 V7 A2,2 0 0 1 5,5 Z"
+                    Stroke="#4C8DFF" StrokeThickness="2" />
+              <Ellipse Canvas.Left="9.5" Canvas.Top="9" Width="5" Height="5" Fill="#F2555A" />
+            </Canvas>
+          </Viewbox>
+          <TextBlock Text="SlateCapture" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" />
+        </StackPanel>
+        <Button x:Name="FeedbackButton" Grid.Column="1" Classes="ghost" Margin="0,0,10,0"
+                VerticalAlignment="Center" Click="OnFeedbackClick" />
+        <Border Grid.Column="2" Background="#1B1F26" CornerRadius="999" Padding="12,6">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Ellipse x:Name="StatusDot" Width="8" Height="8" VerticalAlignment="Center" />
+            <TextBlock x:Name="StatusText" FontSize="13" VerticalAlignment="Center" />
+          </StackPanel>
+        </Border>
+      </Grid>
+    </Border>
+
+    <Grid Grid.Row="1" ColumnDefinitions="*,320">
+
+      <Grid Margin="16" RowDefinitions="*,Auto,Auto">
+
+        <Border x:Name="PreviewFrame" Background="Black" CornerRadius="10" BorderBrush="#262B34" BorderThickness="1" ClipToBounds="True">
+          <Grid>
+            <Image x:Name="Screen" Stretch="Uniform" RenderOptions.BitmapInterpolationMode="HighQuality" />
+
+            <Border x:Name="Overlay" Background="Black">
+              <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="12" MaxWidth="420">
+                <ProgressBar x:Name="Spinner" IsIndeterminate="True" Width="140" Height="3" MinHeight="3"
+                             Foreground="#4C8DFF" Background="#2A303A" HorizontalAlignment="Center" />
+                <TextBlock x:Name="OverlayTitle" FontSize="15" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" />
+                <TextBlock x:Name="OverlayHint" Classes="muted" FontSize="13" HorizontalAlignment="Center" TextAlignment="Center" />
+              </StackPanel>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" Spacing="6" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
+              <Border x:Name="LiveBadge" Classes="badge">
+                <TextBlock x:Name="LiveText" FontSize="11" FontWeight="SemiBold" Foreground="#34D3A6" />
+              </Border>
+              <Border x:Name="RecBadge" Classes="badge">
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                  <Ellipse Width="7" Height="7" Fill="#F2555A" VerticalAlignment="Center" />
+                  <TextBlock x:Name="RecText" FontSize="11" FontWeight="SemiBold" Foreground="#FF8A8E" />
+                </StackPanel>
+              </Border>
+            </StackPanel>
+
+            <Border x:Name="StatsBadge" Classes="badge" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+              <TextBlock x:Name="StatsText" Classes="mono" FontSize="11" Foreground="#C9CED6" />
+            </Border>
+          </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Margin="0,14,0,0" Background="#15181E" BorderBrush="#262B34" BorderThickness="1" CornerRadius="12" Padding="14,12">
+          <Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto">
+            <Button x:Name="RecordButton" Classes="rec" Click="OnRecordClick">
+              <Border x:Name="RecIcon" Width="26" Height="26" CornerRadius="13" Background="#F2555A" />
+            </Button>
+            <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center" MinWidth="130">
+              <TextBlock x:Name="RecTime" Classes="mono" FontSize="22" Text="00:00:00" />
+              <TextBlock x:Name="RecHint" Classes="muted" TextWrapping="NoWrap" />
+            </StackPanel>
+            <StackPanel Grid.Column="2" Margin="20,0,0,0" VerticalAlignment="Center">
+              <TextBlock x:Name="SizeLabel" Classes="muted" />
+              <TextBlock x:Name="RecSize" Classes="mono" FontSize="15" Text="—" />
+            </StackPanel>
+            <Button x:Name="SnapshotButton" Grid.Column="4" Classes="ghost" VerticalAlignment="Center" Click="OnSnapshotClick" />
+          </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2" Margin="0,16,0,0" Spacing="8">
+          <TextBlock x:Name="RecentTitle" Classes="label" Foreground="#C9CED6" />
+          <Border x:Name="RecentEmpty" BorderBrush="#2E343E" BorderThickness="1" CornerRadius="10" Padding="14,12">
+            <TextBlock x:Name="RecentEmptyText" Classes="muted" FontSize="13" />
+          </Border>
+          <ScrollViewer MaxHeight="170" HorizontalScrollBarVisibility="Disabled">
+            <ItemsControl x:Name="RecentList">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="local:Recording">
+                  <Border Background="#15181E" BorderBrush="#262B34" BorderThickness="1" CornerRadius="10" Padding="14,8" Margin="0,0,0,8">
+                    <Grid ColumnDefinitions="*,Auto,Auto">
+                      <TextBlock Classes="mono" Text="{Binding Name}" FontSize="12" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
+                      <TextBlock Grid.Column="1" Classes="muted" Text="{Binding Meta}" TextWrapping="NoWrap" Margin="16,0" VerticalAlignment="Center" />
+                      <Button Grid.Column="2" Classes="ghost" Content="{Binding RevealText}" Tag="{Binding Path}"
+                              FontSize="12" Padding="10,5" Click="OnRevealClick" />
+                    </Grid>
+                  </Border>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </ScrollViewer>
+        </StackPanel>
+      </Grid>
+
+      <Border Grid.Column="1" BorderBrush="#262B34" BorderThickness="1,0,0,0">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+          <StackPanel Margin="16" Spacing="22">
+
+            <StackPanel Spacing="8">
+              <TextBlock x:Name="ResolutionTitle" Classes="label" />
+              <WrapPanel x:Name="LevelPanel" />
+              <TextBlock x:Name="ProbeText" Classes="muted" />
+            </StackPanel>
+
+            <StackPanel Spacing="8">
+              <TextBlock x:Name="FpsTitle" Classes="label" />
+              <WrapPanel>
+                <ToggleButton x:Name="Fps60" Classes="seg" Content="60 FPS" Click="OnFpsClick" Tag="60" />
+                <ToggleButton x:Name="Fps30" Classes="seg" Content="30 FPS" Click="OnFpsClick" Tag="30" />
+              </WrapPanel>
+              <TextBlock x:Name="FpsNote" Classes="muted" />
+            </StackPanel>
+
+            <StackPanel Spacing="6">
+              <Grid ColumnDefinitions="*,Auto">
+                <TextBlock x:Name="QualityTitle" Classes="label" />
+                <TextBlock x:Name="QualityValue" Grid.Column="1" Classes="mono" FontSize="13" Foreground="#C9CED6" />
+              </Grid>
+              <Slider x:Name="QualitySlider" Minimum="2" Maximum="20" TickFrequency="1" IsSnapToTickEnabled="True" />
+              <TextBlock x:Name="QualityHint" Classes="muted" />
+            </StackPanel>
+
+            <StackPanel Spacing="6">
+              <CheckBox x:Name="AudioCheck" Click="OnAudioClick">
+                <TextBlock x:Name="AudioLabel" Classes="label" />
+              </CheckBox>
+              <TextBlock x:Name="AudioNote" Classes="muted" />
+            </StackPanel>
+
+            <StackPanel Spacing="8">
+              <TextBlock x:Name="FolderTitle" Classes="label" />
+              <Grid ColumnDefinitions="*,Auto">
+                <Border Background="#1B1F26" CornerRadius="8" Padding="10,8">
+                  <TextBlock x:Name="FolderText" Classes="mono" FontSize="11" Foreground="#C9CED6" TextWrapping="Wrap" />
+                </Border>
+                <Button x:Name="FolderButton" Grid.Column="1" Classes="ghost" Margin="8,0,0,0" VerticalAlignment="Center" Click="OnFolderClick" />
+              </Grid>
+              <TextBlock x:Name="FormatText" Classes="muted" />
+            </StackPanel>
+
+            <StackPanel Spacing="8">
+              <TextBlock x:Name="LanguageTitle" Classes="label" />
+              <ComboBox x:Name="LanguageBox" Width="180" SelectionChanged="OnLanguageChanged" />
+            </StackPanel>
+
+            <TextBlock x:Name="LockedNote" Classes="muted" Foreground="#FFB4B6" />
+          </StackPanel>
+        </ScrollViewer>
+      </Border>
+    </Grid>
+  </Grid>
+</Window>
